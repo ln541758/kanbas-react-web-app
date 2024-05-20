@@ -6,12 +6,13 @@ export default function images() {
             <br />
             <img id="wd-starship"
                 width="400px"
+                alt="tag_image"
                 src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
             />
             <br />
             Loading a local image:
             <br />
-            <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" />
+            <img id="wd-teslabot" alt="tesla_image" src="images/teslabot.jpg" height="200px" />
         </div>
     );
 }
