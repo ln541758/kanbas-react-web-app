@@ -5,7 +5,7 @@ import Courses from "./Courses";
 
 export default function Kanbas() {
   return (
-    <div id="wd-kanbas">
+    <div id="wd-kanbass">
       <table>
         <tr>
           <td valign="top">
@@ -18,7 +18,8 @@ export default function Kanbas() {
               <Route path="Courses/:id/*" element={<Courses />} />
             </Routes>
           </td>
-        </tr>
+        </tr> 
+            
       </table>
     </div>
   );
