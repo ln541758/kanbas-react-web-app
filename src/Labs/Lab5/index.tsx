@@ -11,7 +11,7 @@ import WorkingWithObjectsAsynchronously from "./WorkingWithObjectsAsynchronously
 export default function Lab5() {
   return (
     <div id="wd-lab5">
-      <h2>Lab 5</h2>
+      <h2>Lab 55</h2>
       <div className="list-group">
         <a href="http://localhost:4000/lab5/welcome" className="list-group-item">
           <h4>Welcome</h4>
