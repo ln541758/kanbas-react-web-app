@@ -9,6 +9,11 @@ import Grades from "./Grades";
 import store from "../store";
 import { Provider } from "react-redux";
 import PeopleTable from "./People/Table";
+import QuizDetails from "./Quizzes/Details";
+import DetailEditor from "./Quizzes/DetailEditor";
+import Quizzes from "./Quizzes/index";
+import QuizPreview from "./Quizzes/Previews";
+
 
 export default function Courses({ courses }: { courses: any[] }) {
   const { cid } = useParams();
@@ -34,6 +39,10 @@ export default function Courses({ courses }: { courses: any[] }) {
               <Route path="Modules" element={<Modules />} />
               <Route path="Assignments" element={<Assignments />} />
               <Route path="Assignments/:id" element={<AssignmentEditor />} />
+              <Route path="Quizzes" element={<Quizzes />} />
+              <Route path="Quizzes/:qid" element={<QuizDetails />} />
+              <Route path="Quizzes/:qid/Preview" element={<QuizPreview />} />     
+              <Route path="Quizzes/:qid/Details" element={<DetailEditor />} />          
               <Route path="Grades" element={<Grades />} />
               <Route path="People" element={<PeopleTable />} />
               <Route path="People/:uid" element={<PeopleTable />} />

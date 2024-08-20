@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import Account from "./Account";
 import ProtectedRoute from "./ProtectedRoute";
 import Session from "./Account/Session";
+import Napster from "../Napster";
+import OpenAI from "../OpenAI";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
@@ -89,6 +91,8 @@ export default function Kanbas() {
               />
               <Route path="Calendar" element={<h1>Calendar</h1>} />
               <Route path="Inbox" element={<h1>Inbox</h1>} />
+              <Route path="Napster/*" element={<Napster />} />
+              <Route path="OpenAI/*" element={<OpenAI />} />
             </Routes>
           </div>
         </div>

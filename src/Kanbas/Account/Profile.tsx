@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
+import * as napsterClient from "../../Napster/client";
 
 export default function Profile() {
   const [profile, setProfile] = useState<any>({});
+  const [likedAlbums, setLikedAlbums] = useState<any>({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const fetchProfile = async () => {
@@ -18,12 +20,16 @@ export default function Profile() {
   };
   useEffect(() => {
     fetchProfile();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const signout = async () => {
     await client.signout();
     dispatch(setCurrentUser(null));
     navigate("/Kanbas/Account/Signin");
+  };
+  const fetchLikedAlbums = async () => {
+    const albums = await napsterClient.getAlbumsLikedByUser();
+    setLikedAlbums(albums);
   };
 
   return (
@@ -85,6 +91,22 @@ export default function Profile() {
           >
             Sign out
           </button>
+          <hr />
+          <h2>Liked Albums</h2>
+          <div className="wd-liked-albums">
+            {likedAlbums &&
+              likedAlbums.length > 0 &&
+              likedAlbums.map((album: any) => (
+                <div key={album.id} className="wd-liked-album">
+                  <img
+                    src={napsterClient.albumImageUrl({ id: album.albumId })}
+                    alt=""
+                    className="wd-album-image"
+                  />
+                  <h3>{album.name}</h3>
+                </div>
+              ))}
+          </div>
         </div>
       )}
     </div>

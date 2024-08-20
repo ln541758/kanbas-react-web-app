@@ -19,3 +19,11 @@ export const signout = async () => {
   return response.data;
 };
 
+const NODE_API=process.env.REACT_APP_NODE_API;
+
+export const userLikesAlbum = async (album: any) => {
+  const response = await axiosWithCredentials.post(
+    `${NODE_API}/api/likes`,
+ album );
+ return response.data;
+ };
